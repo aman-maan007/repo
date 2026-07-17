@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #87CEEB 0%, #a7d9f2 40%, #cdeccb 40%, #8fd18a 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 1.5rem;
+}
+
+.game-wrap {
+  width: 100%;
+  max-width: 840px;
+  text-align: center;
+}
+
+h1 {
+  color: #1b3a1b;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+}
+
+.panel {
+  background: rgba(255,255,255,0.55);
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ---- Setup panel ---- */
+#setupPanel h2 {
+  color: #14321a;
+  margin-bottom: 1rem;
+}
+
+.setup-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  text-align: left;
+}
+
+.setup-row label {
+  font-weight: 600;
+  color: #1b3a1b;
+  min-width: 140px;
+}
+
+.setup-row select {
+  flex: 1;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #9ab89a;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.radio-group label {
+  min-width: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#startMatchBtn {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+/* ---- Match header ---- */
+#matchHeader {
+  font-weight: 700;
+  color: #14321a;
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+}
+
+#targetInfo {
+  font-size: 0.9rem;
+  color: #4a3b0f;
+  background: rgba(255, 213, 74, 0.35);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 0.7rem;
+  min-height: 1.4rem;
+}
+
+#targetInfo:empty {
+  display: none;
+}
+
+/* ---- Scoreboard (shared style) ---- */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  background: #14321a;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.score-item {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.score-item span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd54a;
+}
+
+.score-item label {
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: #cfe8cf;
+  text-transform: uppercase;
+}
+
+/* ---- Simulated innings feed ---- */
+#commentaryFeed {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 220px;
+  overflow-y: auto;
+  background: #0f2414;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #d8f0d0;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+}
+
+#commentaryFeed p {
+  padding: 0.15rem 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.08);
+}
+
+#commentaryFeed p:last-child {
+  color: #ffd54a;
+  font-weight: 600;
+}
+
+/* ---- Canvas field ---- */
+canvas#field {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 4px solid #2f5d2f;
+  background: #7fbf6a;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.35),
+    inset 0 0 0 2px rgba(255,255,255,0.08);
+}
+
+#banner {
+  min-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0.6rem 0;
+  color: #b3141a;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #ffd54a;
+  color: #1b3a1b;
+  box-shadow: 0 3px 0 #c99f2c;
+  transition: transform 0.05s ease;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #c99f2c;
+}
+
+button:disabled {
+  background: #cfcfcf;
+  color: #777;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #204020;
+  max-width: 600px;
+  margin: 0.4rem auto 0;
+  line-height: 1.4;
+}
+
+/* ---- Result panel ---- */
+#resultPanel h2 {
+  font-size: 1.8rem;
+  color: #14321a;
+  margin-bottom: 0.5rem;
+}
+
+#resultPanel p {
+  color: #333;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Animated Cricket Game</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="game-wrap">
+    <h1>🏏 Tap-to-Hit Cricket</h1>
+
+    <!-- ===== Match setup ===== -->
+    <div id="setupPanel" class="panel">
+      <h2>Match Setup</h2>
+
+      <div class="setup-row">
+        <label for="yourTeamSelect">Your Team</label>
+        <select id="yourTeamSelect"></select>
+      </div>
+
+      <div class="setup-row">
+        <label for="oppTeamSelect">Opponent Team</label>
+        <select id="oppTeamSelect"></select>
+      </div>
+
+      <div class="setup-row">
+        <label>Toss Decision</label>
+        <div class="radio-group">
+          <label><input type="radio" name="toss" value="you" checked /> Bat First</label>
+          <label><input type="radio" name="toss" value="opp" /> Bowl First</label>
+        </div>
+      </div>
+
+      <div class="setup-row">
+        <label for="oversSelect">Overs per Innings</label>
+        <select id="oversSelect">
+          <option value="1">1 (Super Over)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="5" selected>5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <button id="startMatchBtn">Start Match</button>
+    </div>
+
+    <!-- ===== Live match ===== -->
+    <div id="matchPanel" class="panel" style="display:none;">
+      <div id="matchHeader"></div>
+      <div id="targetInfo"></div>
+
+      <!-- Simulated (non-interactive) innings view -->
+      <div id="simView" style="display:none;">
+        <div id="simScoreboard" class="scoreboard">
+          <div class="score-item"><span id="simRuns">0</span><label>Runs</label></div>
+          <div class="score-item"><span id="simWickets">0</span><label>Wickets</label></div>
+          <div class="score-item"><span id="simOvers">0.0</span><label>Overs</label></div>
+        </div>
+        <div id="commentaryFeed"></div>
+      </div>
+
+      <!-- Interactive batting view -->
+      <div id="battingView">
+        <div id="scoreboard" class="scoreboard">
+          <div class="score-item"><span id="runs">0</span><label>Runs</label></div>
+          <div class="score-item"><span id="wickets">0</span><label>Wickets</label></div>
+          <div class="score-item"><span id="overs">0.0</span><label>Overs</label></div>
+          <div class="score-item"><span id="lastball">-</span><label>Last Ball</label></div>
+        </div>
+
+        <canvas id="field" width="800" height="420"></canvas>
+
+        <div id="banner"></div>
+
+        <div id="controls">
+          <button id="hitBtn" disabled>SWING! (or press SPACE / click canvas)</button>
+        </div>
+
+        <p class="hint">
+          Watch the ball leave the bowler's hand — swing right as it reaches the bat
+          for the best shot. Early or late swings give fewer runs, or get you out!
+        </p>
+      </div>
+
+      <!-- Result screen -->
+      <div id="resultPanel" style="display:none;">
+        <h2 id="resultTitle"></h2>
+        <p id="resultDetail"></p>
+        <button id="playAgainBtn">New Match</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
