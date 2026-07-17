@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Animated Cricket Game</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="game-wrap">
+    <h1>🏏 Tap-to-Hit Cricket</h1>
+
+    <div id="scoreboard">
+      <div class="score-item"><span id="runs">0</span><label>Runs</label></div>
+      <div class="score-item"><span id="wickets">0</span><label>Wickets</label></div>
+      <div class="score-item"><span id="overs">0.0</span><label>Overs</label></div>
+      <div class="score-item"><span id="lastball">-</span><label>Last Ball</label></div>
+    </div>
+
+    <canvas id="field" width="800" height="420"></canvas>
+
+    <div id="banner"></div>
+
+    <div id="controls">
+      <button id="startBtn">Start Innings</button>
+      <button id="hitBtn" disabled>SWING! (or press SPACE / click canvas)</button>
+    </div>
+
+    <p class="hint">
+      Watch the ball leave the bowler's hand — swing right as it reaches the bat
+      for the best shot. Early or late swings give fewer runs, or get you out!
+      Out after <strong>3 wickets</strong> or <strong>5 overs</strong>.
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
