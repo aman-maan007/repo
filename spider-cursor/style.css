@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, #1b1b2f 0%, #0a0a12 70%);
+  overflow: hidden;
+  cursor: none; /* hide default cursor, we render our own */
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #eee;
+}
+
+/* ---- Custom spider cursor ---- */
+#spider-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
+  transition: transform 0.05s linear;
+}
+
+#spider-cursor svg {
+  display: block;
+}
+
+/* ---- Web trail canvas ---- */
+#web-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 500;
+}
+
+/* ---- Demo page content ---- */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.content h1 {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #f5f5f5, #b8b8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.content p {
+  max-width: 480px;
+  line-height: 1.6;
+  color: #cfcfe6;
+  margin-bottom: 0.6rem;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #8a8ab0;
+}
+
+code {
+  background: rgba(255,255,255,0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}

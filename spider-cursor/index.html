@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spider Web Cursor</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom cursor elements -->
+  <div id="spider-cursor">
+    <svg viewBox="0 0 64 64" width="36" height="36">
+      <!-- generic spider glyph (body + 8 legs) -->
+      <g stroke="#111" stroke-width="2.5" fill="#111" stroke-linecap="round">
+        <ellipse cx="32" cy="30" rx="7" ry="9" />
+        <ellipse cx="32" cy="18" rx="4.5" ry="5" />
+        <!-- legs left -->
+        <path d="M26 24 C16 18, 8 18, 4 12" fill="none"/>
+        <path d="M25 30 C14 28, 6 28, 2 26" fill="none"/>
+        <path d="M25 36 C14 36, 6 40, 3 44" fill="none"/>
+        <path d="M27 41 C18 46, 12 50, 8 56" fill="none"/>
+        <!-- legs right -->
+        <path d="M38 24 C48 18, 56 18, 60 12" fill="none"/>
+        <path d="M39 30 C50 28, 58 28, 62 26" fill="none"/>
+        <path d="M39 36 C50 36, 58 40, 61 44" fill="none"/>
+        <path d="M37 41 C46 46, 52 50, 56 56" fill="none"/>
+      </g>
+    </svg>
+  </div>
+
+  <canvas id="web-canvas"></canvas>
+
+  <main class="content">
+    <h1>Spider Web Cursor</h1>
+    <p>Move your mouse around the page — the spider crawls dot-to-dot along your path,
+      spinning a thin web trail behind it. Click anywhere to shoot a quick web-line burst.</p>
+    <p class="hint">Works on any page — just include <code>style.css</code> and <code>script.js</code>.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
